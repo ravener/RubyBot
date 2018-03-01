@@ -75,7 +75,7 @@ bot.command(:node, help_available: false) do |event, *code|
  end
 end
 
-bot.command(:8ball, description:"Ask the magic 8ball a question") do |event, *question|
+bot.command(:eightball, description:"Ask the magic 8ball a question") do |event, *question|
 Responses = [
    'It is certain',
    'It is decidedly so',
