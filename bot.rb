@@ -9,9 +9,11 @@ bot.command(:eval, help_available: false) do |event, *code|
   break unless event.user.id == 292690616285134850
 
   begin
-    "```rb\n#{eval event.message.content.gsub "r.eval ", ""}```"
+    event.respond "```rb\n#{eval event.message.content.gsub "r.eval ", ""}```"
+   event.message.react "✅"
   rescue => e
-    "An error occurred\n```#{e}```"
+    event.respond "An error occurred\n```#{e}```"
+    event.message.react "❌"
   end
 end
 
@@ -45,35 +47,6 @@ bot.command(:exec, help_available: false) do |event, *code|
  end
 end
 
-# Two extra commands i like, is so i can also run
-# Python and NodeJS code straight from Ruby!
-# The way this works is that we store the code entered
-# in a file then use the exec method to run it and send
-# back the results, this will also require you to have
-# python or nodejs installed on your computer/vps.
-bot.command(:python, help_available: false) do |event, *code|
- break unless event.user.id == 292690616285134850
- File.open("python.py", "w") { |f|
- 	f.puts code.join(' ')
- }
-  begin
-  "```py\n#{exec 'python python.py'}```"
-  rescue => e
-  "```#{e}```"
- end
-end
- 
-bot.command(:node, help_available: false) do |event, *code|
- break unless event.user.id == 292690616285134850
- File.open("node.js", "w") { |f|
- 	f.puts code.join(' ')
- }
-  begin
-  "```py\n#{exec 'node node.js'}```"
-  rescue => e
-  "```#{e}```"
- end
-end
 
 bot.command(:eightball, description:"Ask the magic 8ball a question") do |event, *question|
 Responses = [
