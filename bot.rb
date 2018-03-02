@@ -9,7 +9,7 @@ bot.command(:eval, help_available: false) do |event, *code|
   break unless event.user.id == 292690616285134850
 
   begin
-    "```rb\n#{eval code.join(' ')}```"
+    "```rb\n#{eval event.message.content.gsub "r.eval ", ""}```"
   rescue => e
     "An error occurred\n```#{e}```"
   end
