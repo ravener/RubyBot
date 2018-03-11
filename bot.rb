@@ -6,7 +6,8 @@ token = token.read
 bot = Discordrb::Commands::CommandBot.new token: token, prefix: 'r.'
 
 bot.command(:eval, help_available: false) do |event, *code|
-  break unless event.user.id in [292690616285134850, 281821029490229251, 307133814834987008, 382574338685009920, 316586772349976586]
+  allowed = [292690616285134850, 281821029490229251, 307133814834987008, 382574338685009920, 316586772349976586]
+  break unless allowed.include?(event.user.id)
 
   begin
     event.respond "```rb\n#{eval event.message.content.gsub "r.eval ", ""}```"
