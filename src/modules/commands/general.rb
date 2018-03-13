@@ -2,7 +2,7 @@ require 'discordrb'
 
 module Bot::Commands
  module General
-   extend Discordrb::Commmands::CommandContainer
+   extend Discordrb::Commands::CommandContainer
     command(:ping, description:"Pong! Bot latency check.") do |event|
      msg = event.respond "Pong!"
      msg.edit "Pong! Time taken #{Time.now - event.timestamp} ms"
