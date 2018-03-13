@@ -3,7 +3,7 @@ require 'discordrb'
 module Bot::Commands
  module Fun
   extend Discordrb::Commands::CommandContainer
-   command("8ball", description:"Ask the magic 8ball a question") do |event|
+   command(:eightball, description:"Ask the magic 8ball a question") do |event|
    event.respond [
    'It is certain',
    'It is decidedly so',
