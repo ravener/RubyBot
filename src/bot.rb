@@ -5,7 +5,7 @@ require 'json'
 module Bot
 
   Dir['src/modules/*.rb'].each { |mod| load mod }
-  CONFIG = OpenStruct.new(JSON.parse(File.open('data/config.yaml').read))
+  CONFIG = OpenStruct.new(JSON.parse(File.open('data/config.json').read))
 
   BOT = Discordrb::Commands::CommandBot.new token: CONFIG.token, prefix: 'r.'
 
