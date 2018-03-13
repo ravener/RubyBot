@@ -1,11 +1,11 @@
 require 'discordrb'
 require 'ostruct'
-require 'yaml'
+require 'json'
 
 module Bot
 
   Dir['src/modules/*.rb'].each { |mod| load mod }
-  CONFIG = OpenStruct.new YAML.load_file 'data/config.yaml'
+  CONFIG = OpenStruct.new(JSON.parse(File.open('data/config.yaml').read))
 
   BOT = Discordrb::Commands::CommandBot.new token: CONFIG.token, prefix: 'r.'
 
