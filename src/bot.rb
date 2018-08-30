@@ -7,7 +7,7 @@ module Bot
   Dir['src/modules/*.rb'].each { |mod| load mod }
   CONFIG = OpenStruct.new(JSON.parse(File.open('data/config.json').read))
 
-  BOT = Discordrb::Commands::CommandBot.new token: CONFIG.token, prefix: 'r.'
+  BOT = Discordrb::Commands::CommandBot.new token: CONFIG.token, prefix: 'rb.'
 
   def self.load_modules(cls, path)
     new_module = Module.new
