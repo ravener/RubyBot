@@ -6,7 +6,7 @@ module Bot::Commands
       command(:eval, help_available:false) do |event|
         break unless event.user.id == Bot::CONFIG.ownerID.to_i
         begin
-          event.respond "```rb\n#{eval event.message.content.gsub 'r.eval ', ''}```"
+          event.respond "```rb\n#{eval event.message.content.gsub 'rb.eval ', ''}```"
           event.message.react "✅"
         rescue => e
           event.respond "Error\n```#{e}```"
