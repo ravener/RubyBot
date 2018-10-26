@@ -1,10 +1,10 @@
 # RubyBot
-a simple discord bot made by Free TNT#5796 using discordrb library.
+A simple discord bot made by Free TNT#5796 using discordrb library.
 
-It's still under development.
+It's still under development. I don't really work on it anymore
 
-Mostly its a practice and trying discordrb.
-im mainly into node.js and python
+Mostly it's a practice and trying discordrb.    
+I'm mainly into node.js and python
 
 ## Contributing
 Feel free to open a pull request with your changes and describe your changes.
